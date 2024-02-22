@@ -27,6 +27,17 @@
         </li>
       </ul>
     </li>
+    <li>
+      Extended Vigenere Cipher
+      <ul>
+        <li>
+          <a href="./extended-vigenere-cipher/extended-vigenere-encrypt.php">Encrypt File</a>
+        </li>
+        <li>
+          <a href="./extended-vigenere-cipher/extended-vigenere-decrypt.php">Decrypt File</a>
+        </li>
+      </ul>
+    </li>
   </ul>
 </body>
 
