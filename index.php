@@ -38,6 +38,17 @@
         </li>
       </ul>
     </li>
+    <li>
+      Affine Cipher
+      <ul>
+        <li>
+          <a href="./affine-cipher/affine-encrypt-text.php">Encrypt Text</a>
+        </li>
+        <li>
+          <a href="./affine-cipher/affine-decrypt-text.php">Decrypt Text</a>
+        </li>
+      </ul>
+    </li>
   </ul>
 </body>
 
