@@ -47,6 +47,12 @@
         <li>
           <a href="./affine-cipher/affine-decrypt-text.php">Decrypt Text</a>
         </li>
+        <li>
+          <a href="./affine-cipher/affine-encrypt-file.php">Encrypt Text File</a>
+        </li>
+        <li>
+          <a href="./affine-cipher/affine-decrypt-file.php">Decrypt Text File</a>
+        </li>
       </ul>
     </li>
   </ul>
