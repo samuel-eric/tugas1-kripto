@@ -11,13 +11,13 @@
             Vigenere
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="./vigenere-cipher/vigenere-encrypt-text.php">Encrypt Text</a></li>
-            <li><a class="dropdown-item" href="./vigenere-cipher/vigenere-decrypt-text.php">Decrypt Text</a></li>
+            <li><a class="dropdown-item" href="./../vigenere-cipher/vigenere-encrypt-text.php">Encrypt Text</a></li>
+            <li><a class="dropdown-item" href="./../vigenere-cipher/vigenere-decrypt-text.php">Decrypt Text</a></li>
             <li>
               <hr class="dropdown-divider">
             </li>
-            <li><a class="dropdown-item" href="./vigenere-cipher/vigenere-encrypt-file.php">Encrypt Text File</a></li>
-            <li><a class="dropdown-item" href="./vigenere-cipher/vigenere-decrypt-file.php">Decrypt Text File</a></li>
+            <li><a class="dropdown-item" href="./../vigenere-cipher/vigenere-encrypt-file.php">Encrypt Text File</a></li>
+            <li><a class="dropdown-item" href="./../vigenere-cipher/vigenere-decrypt-file.php">Decrypt Text File</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -25,8 +25,8 @@
             Extended Vigenere
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="./extended-vigenere-cipher/extended-vigenere-encrypt.php">Encrypt File</a></li>
-            <li><a class="dropdown-item" href="./extended-vigenere-cipher/extended-vigenere-decrypt.php">Decrypt File</a></li>
+            <li><a class="dropdown-item" href="./../extended-vigenere-cipher/extended-vigenere-encrypt.php">Encrypt File</a></li>
+            <li><a class="dropdown-item" href="./../extended-vigenere-cipher/extended-vigenere-decrypt.php">Decrypt File</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -34,13 +34,13 @@
             Affine
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="./affine-cipher/affine-encrypt-text.php">Encrypt Text</a></li>
-            <li><a class="dropdown-item" href="./affine-cipher/affine-decrypt-text.php">Decrypt Text</a></li>
+            <li><a class="dropdown-item" href="./../affine-cipher/affine-encrypt-text.php">Encrypt Text</a></li>
+            <li><a class="dropdown-item" href="./../affine-cipher/affine-decrypt-text.php">Decrypt Text</a></li>
             <li>
               <hr class="dropdown-divider">
             </li>
-            <li><a class="dropdown-item" href="./affine-cipher/affine-encrypt-file.php">Encrypt Text File</a></li>
-            <li><a class="dropdown-item" href="./affine-cipher/affine-decrypt-file.php">Decrypt Text File</a></li>
+            <li><a class="dropdown-item" href="./../affine-cipher/affine-encrypt-file.php">Encrypt Text File</a></li>
+            <li><a class="dropdown-item" href="./../affine-cipher/affine-decrypt-file.php">Decrypt Text File</a></li>
           </ul>
         </li>
       </ul>
