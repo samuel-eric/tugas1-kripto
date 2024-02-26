@@ -1,61 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php include __DIR__ . '/components/_header.php'; ?>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coba2 Kripto</title>
-</head>
+<div class="card position-absolute top-50 start-50 translate-middle" style="width: 25rem;">
+  <div class="card-body text-center">
+    <h5 class="card-title fs-3">Kriptografi Tugas 1</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary fs-5">Made by 18221133 & 18221159</h6>
+    <hr>
+    <p class="card-text">Website ini merupakan tugas mata kuliah <strong>Kriptografi dan Koding II4031.</strong></p>
+    <a href="https://github.com/samuel-eric/tugas1-kripto" class="card-link" target="_blank">Link github</a>
+  </div>
+</div>
 
-<body>
-  <h1>Coba2 kripto tugas 1</h1>
-  <ul>
-    <li>
-      Vigenere Cipher
-      <ul>
-        <li>
-          <a href="./vigenere-cipher/vigenere-encrypt-text.php">Encrypt Text</a>
-        </li>
-        <li>
-          <a href="./vigenere-cipher/vigenere-decrypt-text.php">Decrypt Text</a>
-        </li>
-        <li>
-          <a href="./vigenere-cipher/vigenere-encrypt-file.php">Encrypt Text File</a>
-        </li>
-        <li>
-          <a href="./vigenere-cipher/vigenere-decrypt-file.php">Decrypt Text File</a>
-        </li>
-      </ul>
-    </li>
-    <li>
-      Extended Vigenere Cipher
-      <ul>
-        <li>
-          <a href="./extended-vigenere-cipher/extended-vigenere-encrypt.php">Encrypt File</a>
-        </li>
-        <li>
-          <a href="./extended-vigenere-cipher/extended-vigenere-decrypt.php">Decrypt File</a>
-        </li>
-      </ul>
-    </li>
-    <li>
-      Affine Cipher
-      <ul>
-        <li>
-          <a href="./affine-cipher/affine-encrypt-text.php">Encrypt Text</a>
-        </li>
-        <li>
-          <a href="./affine-cipher/affine-decrypt-text.php">Decrypt Text</a>
-        </li>
-        <li>
-          <a href="./affine-cipher/affine-encrypt-file.php">Encrypt Text File</a>
-        </li>
-        <li>
-          <a href="./affine-cipher/affine-decrypt-file.php">Decrypt Text File</a>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</body>
-
-</html>
+<?php include __DIR__ . '/components/_footer.php'; ?>
