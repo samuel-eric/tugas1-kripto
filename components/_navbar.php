@@ -25,6 +25,11 @@
             Extended Vigenere
           </a>
           <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="./../extended-vigenere-cipher/extended-vigenere-encrypt-text.php">Encrypt Text</a></li>
+            <li><a class="dropdown-item" href="./../extended-vigenere-cipher/extended-vigenere-decrypt-text.php">Decrypt Text</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
             <li><a class="dropdown-item" href="./../extended-vigenere-cipher/extended-vigenere-encrypt.php">Encrypt File</a></li>
             <li><a class="dropdown-item" href="./../extended-vigenere-cipher/extended-vigenere-decrypt.php">Decrypt File</a></li>
           </ul>

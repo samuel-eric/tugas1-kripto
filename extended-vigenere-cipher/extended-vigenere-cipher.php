@@ -2,23 +2,22 @@
 
 class ExtendedVigenere
 {
-  public static function encrypt($file, $key)
+  public static function encrypt($plainText, $key)
   {
-    $plainFile = file_get_contents($file['tmp_name']);
-    while (strlen($plainFile) > strlen($key)) {
+    while (strlen($plainText) > strlen($key)) {
       $key .= $key;
     }
-    while (strlen($plainFile) < strlen($key)) {
+    while (strlen($plainText) < strlen($key)) {
       $key = substr($key, 0, strlen($key) - 1);
     }
 
-    $plainFileArr = str_split($plainFile);
+    $plainTextArr = str_split($plainText);
     $keyArr = str_split($key);
 
     $plainValues = [];
     $keyValues = [];
 
-    foreach ($plainFileArr as $plain) {
+    foreach ($plainTextArr as $plain) {
       $plainValues[] = ord($plain);
     }
 
@@ -34,36 +33,30 @@ class ExtendedVigenere
 
 
     // convert cypher values to cypher text
-    $cipherFile = '';
+    $cipherText = '';
     foreach ($cipherValues as $value) {
-      $cipherFile .= chr($value);
+      $cipherText .= chr($value);
     }
 
-    // var_dump($plainFile === $cipherFile);
-
-    $tmp = explode('.', $file['name']);
-    $ext = end($tmp);
-
-    file_put_contents(__DIR__ . "/../uploads/encrypt.$ext", $cipherFile);
+    return $cipherText;
   }
 
-  public static function decrypt($file, $key)
+  public static function decrypt($cipherText, $key)
   {
-    $cipherFile = file_get_contents($file['tmp_name']);
-    while (strlen($cipherFile) > strlen($key)) {
+    while (strlen($cipherText) > strlen($key)) {
       $key .= $key;
     }
-    while (strlen($cipherFile) < strlen($key)) {
+    while (strlen($cipherText) < strlen($key)) {
       $key = substr($key, 0, strlen($key) - 1);
     }
 
-    $cipherFileArr = str_split($cipherFile);
+    $cipherTextArr = str_split($cipherText);
     $keyArr = str_split($key);
 
     $cipherValues = [];
     $keyValues = [];
 
-    foreach ($cipherFileArr as $cipher) {
+    foreach ($cipherTextArr as $cipher) {
       $cipherValues[] = ord($cipher);
     }
 
@@ -79,14 +72,11 @@ class ExtendedVigenere
     }
 
     // convert cypher values to cypher text
-    $plainFile = '';
+    $plainText = '';
     foreach ($plainValues as $value) {
-      $plainFile .= chr($value);
+      $plainText .= chr($value);
     }
 
-    $tmp = explode('.', $file['name']);
-    $ext = end($tmp);
-
-    file_put_contents(__DIR__ . "/../uploads/decrypt.$ext", $plainFile);
+    return $plainText;
   }
 }

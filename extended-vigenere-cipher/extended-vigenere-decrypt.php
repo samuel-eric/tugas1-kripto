@@ -7,7 +7,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     $tmp = explode('.', $_FILES['cipher']['name']);
     $ext = end($tmp);
     $key = $_POST['key'] ?? '';
-    ExtendedVigenere::decrypt($_FILES['cipher'], $key);
+    $cipherText = file_get_contents($_FILES['cipher']['tmp_name']);
+    $plainText = ExtendedVigenere::decrypt($cipherText, $key);
+
+    file_put_contents(__DIR__ . "/../uploads/decrypt.$ext", $plainText);
   }
 }
 
