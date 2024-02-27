@@ -21,12 +21,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     <hr>
     <form method="post">
       <div class="my-3">
-        <label for="plain"><strong>Plain text:</strong></label>
-        <input type="text" id="plain" name="plain" value="<?= htmlspecialchars($_POST['plain'] ?? '') ?>">
+        <label for="plain" class="form-label"><strong>Plain text:</strong></label>
+        <input type="text" id="plain" name="plain" value="<?= htmlspecialchars($_POST['plain'] ?? '') ?>" class="form-control">
       </div>
       <div class="my-3">
-        <label for="key"><strong>Key:</strong></label>
-        <input type="text" id="key" name="key" value="<?= htmlspecialchars($_POST['key'] ?? '') ?>">
+        <label for="key" class="form-label"><strong>Key:</strong></label>
+        <input type="text" id="key" name="key" value="<?= htmlspecialchars($_POST['key'] ?? '') ?>" class="form-control">
       </div>
       <button type="submit" name="submit" class="btn btn-primary">Encrypt</button>
     </form>

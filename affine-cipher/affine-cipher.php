@@ -2,6 +2,8 @@
 
 class Affine
 {
+  public static $slopeOption = [1, 3, 5, 7, 9, 11, 15, 17, 19, 21];
+
   private static function findInverseSlope($slope)
   {
     $i = 1;

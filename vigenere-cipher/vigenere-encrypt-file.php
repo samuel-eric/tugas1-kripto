@@ -22,12 +22,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     <hr>
     <form method="post" enctype="multipart/form-data">
       <div class="my-3">
-        <label for="plain"><strong>Plain text file:</strong></label>
-        <input type="file" name="plain" id="plain" accept=".txt">
+        <label for="plain" class="form-label"><strong>Plain text file:</strong></label>
+        <input type="file" name="plain" id="plain" accept=".txt" class="form-control">
       </div>
       <div class="my-3">
-        <label for="key"><strong>Key:</strong></label>
-        <input type="text" id="key" name="key">
+        <label for="key" class="form-label"><strong>Key:</strong></label>
+        <input type="text" id="key" name="key" class="form-control">
       </div>
       <button type="submit" name="submit" class="btn btn-primary">Encrypt</button>
     </form>
