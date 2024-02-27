@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     <form method="post">
       <div class="my-3">
         <label for="plain" class="form-label"><strong>Plain text:</strong></label>
-        <input type="text" id="plain" name="plain" value="<?= htmlspecialchars($_POST['plain'] ?? '') ?>" class="form-control">
+        <textarea id="plain" name="plain" class="form-control"><?= htmlspecialchars($_POST['plain'] ?? '') ?></textarea>
       </div>
       <div class="my-3">
         <label for="key" class="form-label"><strong>Key:</strong></label>

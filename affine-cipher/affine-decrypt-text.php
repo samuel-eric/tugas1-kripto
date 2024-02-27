@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     <form method="post">
       <div class="my-3">
         <label for="cipher" class="form-label"><strong>Cipher text:</strong></label>
-        <input type="text" id="cipher" name="cipher" value="<?= htmlspecialchars($_POST['cipher'] ?? '') ?>" class="form-control">
+        <textarea id="cipher" name="cipher" class="form-control"><?= htmlspecialchars($_POST['cipher'] ?? '') ?></textarea>
       </div>
       <div class="my-3">
         <label for="slope" class="form-label"><strong>Slope:</strong></label>
