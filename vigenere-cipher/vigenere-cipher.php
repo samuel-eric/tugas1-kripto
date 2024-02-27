@@ -6,6 +6,9 @@ class Vigenere
   {
     $alphabets = range('a', 'z');
 
+    $plainText = implode(explode(' ', $plainText));
+    $key = implode(explode(' ', $key));
+
     while (strlen($plainText) > strlen($key)) {
       $key .= $key;
     }
@@ -58,6 +61,9 @@ class Vigenere
   public static function decrypt($cipherText, $key)
   {
     $alphabets = range('a', 'z');
+
+    $cipherText = implode(explode(' ', $cipherText));
+    $key = implode(explode(' ', $key));
 
     while (strlen($cipherText) > strlen($key)) {
       $key .= $key;
