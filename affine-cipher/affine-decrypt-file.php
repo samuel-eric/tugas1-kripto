@@ -9,6 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     $slope = $_POST['slope'] ?? '';
     $intercept = $_POST['intercept'] ?? '';
     $plainText = Affine::decrypt($cipherText, $slope, $intercept);
+
+    $filename = 'decrypt-' . uniqid() . '.txt';
+    file_put_contents(__DIR__ . '/../uploads/' . $filename, $plainText);
   }
 }
 
@@ -44,6 +47,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     <?php if (isset($plainText)) : ?>
       <p>
         <strong><?= $plainText ?></strong>
+      </p>
+      <p>
+        <a href="/uploads/<?= $filename ?>" download>Download decrypted text file</a>
       </p>
     <?php else : ?>
       <p>

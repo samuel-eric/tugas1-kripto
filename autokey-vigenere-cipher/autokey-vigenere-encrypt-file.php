@@ -9,7 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     $key = $_POST['key'] ?? '';
     $cipherText = AutokeyVigenere::encrypt($plainText, $key);
 
-    file_put_contents(__DIR__ . '/../uploads/encrypt.txt', $cipherText);
+    $filename = 'encrypt-' . uniqid() . '.txt';
+    file_put_contents(__DIR__ . '/../uploads/' . $filename, $cipherText);
   }
 }
 
@@ -39,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
         <strong><?= $cipherText ?></strong>
       </p>
       <p>
-        <a href="/uploads/encrypt.txt" download>Download encrypted text file</a>
+        <a href="/uploads/<?= $filename ?>" download>Download encrypted text file</a>
       </p>
     <?php else : ?>
       <p>

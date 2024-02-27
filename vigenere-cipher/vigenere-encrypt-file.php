@@ -8,6 +8,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     $plainText = file_get_contents($fileLocation);
     $key = $_POST['key'] ?? '';
     $cipherText = Vigenere::encrypt($plainText, $key);
+
+    $filename = 'encrypt-' . uniqid() . '.txt';
+    file_put_contents(__DIR__ . '/../uploads/' . $filename, $cipherText);
   }
 }
 
@@ -35,6 +38,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     <?php if (isset($cipherText)) : ?>
       <p>
         <strong><?= $cipherText ?></strong>
+      </p>
+      <p>
+        <a href="/uploads/<?= $filename ?>" download>Download decrypted text file</a>
       </p>
     <?php else : ?>
       <p>

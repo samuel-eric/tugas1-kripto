@@ -7,7 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
   $key = $_POST['key'] ?? '';
   $plainText = ExtendedVigenere::decrypt($cipherText, $key);
 
-  file_put_contents(__DIR__ . '/../uploads/decrypt.txt', $plainText);
+  $filename = 'decrypt-' . uniqid() . '.txt';
+  file_put_contents(__DIR__ . '/../uploads/' . $filename, $plainText);
 }
 
 ?>
@@ -36,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
         <strong><?= $plainText ?></strong>
       </p>
       <p>
-        <a href="/uploads/decrypt.txt" download>Download decrypted text file</a>
+        <a href="/uploads/<?= $filename ?>" download>Download decrypted text file</a>
       </p>
     <?php else : ?>
       <p>
