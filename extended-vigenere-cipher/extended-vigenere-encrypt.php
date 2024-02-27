@@ -13,40 +13,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+<?php include __DIR__ . '/../components/_header.php' ?>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Extended Vigenere Cipher</title>
-</head>
-
-<body>
-  <div>
-    <a href="/index.php">Back to home</a>
+<div class="card position-absolute top-50 start-50 translate-middle">
+  <div class="card-body">
+    <a href="/index.php" class="btn btn-secondary mb-3">Back to home</a>
+    <h5 class="card-title fs-3">Encrypt Extended Vigenere Cipher with File</h5>
+    <hr>
+    <form method="post" enctype="multipart/form-data">
+      <div class="my-3">
+        <label for="plain"><strong>Plain file:</strong></label>
+        <input type="file" name="plain" id="plain">
+      </div>
+      <div class="my-3">
+        <label for="key"><strong>Key:</strong></label>
+        <input type="text" id="key" name="key">
+      </div>
+      <button type="submit" name="submit" class="btn btn-primary">Encrypt</button>
+    </form>
+    <hr>
+    <?php if (isset($_FILES['plain']['tmp_name'])) : ?>
+      <p>
+        <a href="/uploads/encrypt.<?= $ext ?>" download>Download file</a>
+      </p>
+    <?php else : ?>
+      <p>
+        <strong>Please upload a file</strong>
+      </p>
+    <?php endif ?>
   </div>
-  <h1>Encrypt Extended Vigenere Cipher with File</h1>
-  <form method="post" enctype="multipart/form-data">
-    <div>
-      <label for="plain">Plain file:</label>
-      <input type="file" name="plain" id="plain">
-    </div>
-    <div>
-      <label for="key">Key:</label>
-      <input type="text" id="key" name="key">
-    </div>
-    <button type="submit" name="submit">Encrypt</button>
-  </form>
-  <?php if (isset($_FILES['plain']['tmp_name'])) : ?>
-    <p>
-      <a href="/uploads/encrypt.<?= $ext ?>" download>Download file</a>
-    </p>
-  <?php else : ?>
-    <p>
-      <strong>Please upload a file</strong>
-    </p>
-  <?php endif ?>
-</body>
-
-</html>
+</div>
