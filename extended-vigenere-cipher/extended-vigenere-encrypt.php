@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 <div class="card position-absolute top-50 start-50 translate-middle">
   <div class="card-body">
     <a href="/index.php" class="btn btn-secondary mb-3">Back to home</a>
-    <h5 class="card-title fs-3">Encrypt Extended Vigenere Cipher with File</h5>
+    <h5 class="card-title fs-3 text-center">Encrypt Extended Vigenere Cipher with File</h5>
     <hr>
     <form method="post" enctype="multipart/form-data">
       <div class="my-3">
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
         <label for="key" class="form-label"><strong>Key:</strong></label>
         <input type="text" id="key" name="key" class="form-control" required>
       </div>
-      <button type="submit" name="submit" class="btn btn-primary">Encrypt</button>
+      <button type="submit" name="submit" class="btn btn-primary w-100 p-2">Encrypt</button>
     </form>
     <hr>
     <?php if (isset($_FILES['plain']['tmp_name'])) : ?>
@@ -41,9 +41,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
         <a href="/uploads/<?= $filename ?>" download>Download file</a>
       </p>
     <?php else : ?>
-      <p>
-        <strong>Please upload a file</strong>
-      </p>
+      <div class="alert alert-info text-center">
+        <strong>Please upload decrypted file and key</strong>
+      </div>
     <?php endif ?>
   </div>
 </div>

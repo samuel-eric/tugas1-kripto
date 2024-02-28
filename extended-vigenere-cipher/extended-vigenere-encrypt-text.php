@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 <div class="card position-absolute top-50 start-50 translate-middle">
   <div class="card-body">
     <a href="/index.php" class="btn btn-secondary mb-3">Back to home</a>
-    <h5 class="card-title fs-3">Encrypt Vigenere Cipher</h5>
+    <h5 class="card-title fs-3 text-center">Encrypt Vigenere Cipher</h5>
     <hr>
     <form method="post">
       <div class="my-3">
@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
         <label for="key" class="form-label"><strong>Key:</strong></label>
         <input type="text" id="key" name="key" value="<?= htmlspecialchars($_POST['key'] ?? '') ?>" class="form-control" required>
       </div>
-      <button type="submit" name="submit" class="btn btn-primary">Encrypt</button>
+      <button type="submit" name="submit" class="btn btn-primary w-100 p-2">Encrypt</button>
     </form>
     <hr>
     <?php if (isset($cipherText)) : ?>
@@ -43,9 +43,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
         <strong>Output (base64):</strong> <?= base64_encode($cipherText) ?>
       </p>
     <?php else : ?>
-      <p>
+      <div class="alert alert-info text-center">
         <strong>Please input plain text and key</strong>
-      </p>
+      </div>
     <?php endif ?>
   </div>
 </div>
