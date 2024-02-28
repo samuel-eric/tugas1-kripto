@@ -4,6 +4,18 @@ class Affine
 {
   public static $slopeOption = [1, 3, 5, 7, 9, 11, 15, 17, 19, 21];
 
+  public static function checkRelativePrime($slope)
+  {
+    for ($i = 1; $i <= $slope; $i++) {
+      if ($i !== 1) {
+        if ($slope % $i === 0 && 26 % $i === 0) {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
   private static function findInverseSlope($slope)
   {
     $i = 1;

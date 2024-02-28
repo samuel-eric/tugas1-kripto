@@ -6,10 +6,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
   $cipherText = $_POST['cipher'] ?? '';
   $slope = $_POST['slope'] ?? '';
   $intercept = $_POST['intercept'] ?? '';
-  $plainText = Affine::decrypt($cipherText, $slope, $intercept);
 
-  $filename = 'decrypt-' . uniqid() . '.txt';
-  file_put_contents(__DIR__ . '/../uploads/' . $filename, $plainText);
+  if (Affine::checkRelativePrime($slope)) {
+    $plainText = Affine::decrypt($cipherText, $slope, $intercept);
+    $filename = 'decrypt-' . uniqid() . '.txt';
+    file_put_contents(__DIR__ . '/../uploads/' . $filename, $plainText);
+  }
 }
 
 ?>
@@ -19,26 +21,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 <div class="card position-absolute top-50 start-50 translate-middle">
   <div class="card-body">
     <a href="/index.php" class="btn btn-secondary mb-3">Back to home</a>
-    <h5 class="card-title fs-3">Decrypt Affine Cipher</h5>
+    <h5 class="card-title fs-3 text-center">Decrypt Affine Cipher</h5>
     <hr>
     <form method="post">
-      <div class="my-3">
+      <div class="my-3 form-group">
         <label for="cipher" class="form-label"><strong>Cipher text:</strong></label>
         <textarea id="cipher" name="cipher" class="form-control" required><?= htmlspecialchars($_POST['cipher'] ?? '') ?></textarea>
       </div>
-      <div class="my-3">
+      <div class="my-3 form-group">
         <label for="slope" class="form-label"><strong>Slope:</strong></label>
-        <select name="slope" id="slope" class="form-select" required>
-          <?php foreach (Affine::$slopeOption as $slope) : ?>
-            <option value="<?= $slope ?>" <?= isset($_POST['slope']) && $slope == $_POST['slope'] ? 'selected' : '' ?>><?= $slope ?></option>
-          <?php endforeach; ?>
-        </select>
+        <input type="number" id="slope" name="slope" class="form-control" value="<?= htmlspecialchars($_POST['slope'] ?? '') ?>" min=1>
       </div>
-      <div class="my-3">
+      <div class="my-3 form-group">
         <label for="intercept" class="form-label"><strong>Intercept (pergeseran):</strong></label>
-        <input type="text" id="intercept" name="intercept" value="<?= htmlspecialchars($_POST['intercept'] ?? '') ?>" class="form-control" required>
+        <input type="number" id="intercept" name="intercept" value="<?= htmlspecialchars($_POST['intercept'] ?? '') ?>" class="form-control" required min=0>
       </div>
-      <button type="submit" name="submit" class="btn btn-primary">Decrypt</button>
+      <button type="submit" name="submit" class="btn btn-primary w-100 p-2">Decrypt</button>
     </form>
     <hr>
     <?php if (isset($plainText)) : ?>
@@ -52,9 +50,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
         <strong>Output (base64):</strong> <?= base64_encode($plainText) ?>
       </p>
     <?php else : ?>
-      <p>
-        <strong>Please input cipher text, slope, and intercept</strong>
-      </p>
+      <?php if (!empty($slope) && !Affine::checkRelativePrime($slope)) : ?>
+        <div class="alert alert-danger text-center" role="alert">
+          <?= $slope ?> is not relatively prime to 26!
+        </div>
+      <?php else : ?>
+        <div class="alert alert-info text-center">
+          <strong>Please input cipher text, slope, intercept</strong>
+        </div>
+      <?php endif ?>
     <?php endif ?>
   </div>
 </div>
