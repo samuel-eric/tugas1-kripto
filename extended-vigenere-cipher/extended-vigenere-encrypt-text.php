@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
       </p>
     <?php else : ?>
       <p>
-        <strong>Please input some text</strong>
+        <strong>Please input plain text and key</strong>
       </p>
     <?php endif ?>
   </div>
