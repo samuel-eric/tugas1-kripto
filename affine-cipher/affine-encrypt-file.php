@@ -27,11 +27,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     <form method="post" enctype="multipart/form-data">
       <div class="my-3">
         <label for="plain" class="form-label"><strong>Plain text file:</strong></label>
-        <input type="file" name="plain" id="plain" accept=".txt" class="form-control">
+        <input type="file" name="plain" id="plain" accept=".txt" class="form-control" required>
       </div>
       <div class="my-3">
         <label for="slope" class="form-label"><strong>Slope:</strong></label>
-        <select name="slope" id="slope" class="form-select">
+        <select name="slope" id="slope" class="form-select" required>
           <?php foreach (Affine::$slopeOption as $slope) : ?>
             <option value="<?= $slope ?>" <?= isset($_POST['slope']) && $slope == $_POST['slope'] ? 'selected' : '' ?>><?= $slope ?></option>
           <?php endforeach; ?>
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
       </div>
       <div class="my-3">
         <label for="intercept" class="form-label"><strong>Intercept (pergeseran):</strong></label>
-        <input type="text" id="intercept" name="intercept" value="<?= htmlspecialchars($_POST['intercept'] ?? '') ?>" class="form-control">
+        <input type="text" id="intercept" name="intercept" value="<?= htmlspecialchars($_POST['intercept'] ?? '') ?>" class="form-control" required>
       </div>
       <button type="submit" name="submit" class="btn btn-primary">Encrypt</button>
     </form>

@@ -23,11 +23,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     <form method="post">
       <div class="my-3">
         <label for="cipher" class="form-label"><strong>Cipher text:</strong></label>
-        <textarea id="cipher" name="cipher" class="form-control"><?= htmlspecialchars($_POST['cipher'] ?? '') ?></textarea>
+        <textarea id="cipher" name="cipher" class="form-control" required><?= htmlspecialchars($_POST['cipher'] ?? '') ?></textarea>
       </div>
       <div class="my-3">
         <label for="key" class="form-label"><strong>Key:</strong></label>
-        <input type="text" id="key" name="key" value="<?= htmlspecialchars($_POST['key'] ?? '') ?>" class="form-control">
+        <input type="text" id="key" name="key" value="<?= htmlspecialchars($_POST['key'] ?? '') ?>" class="form-control" required>
       </div>
       <button type="submit" name="submit" class="btn btn-primary">Decrypt</button>
     </form>

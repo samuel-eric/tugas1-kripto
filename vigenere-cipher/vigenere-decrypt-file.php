@@ -26,11 +26,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     <form method="post" enctype="multipart/form-data">
       <div class="my-3">
         <label for="cipher" class="form-label"><strong>Cipher text file:</strong></label>
-        <input type="file" name="cipher" id="cipher" accept=".txt" class="form-control">
+        <input type="file" name="cipher" id="cipher" accept=".txt" class="form-control" required>
       </div>
       <div class="my-3">
         <label for="key" class="form-label"><strong>Key:</strong></label>
-        <input type="text" id="key" name="key" class="form-control">
+        <input type="text" id="key" name="key" class="form-control" required>
       </div>
       <button type="submit" name="submit" class="btn btn-primary">Decrypt</button>
     </form>

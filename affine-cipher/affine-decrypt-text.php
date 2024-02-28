@@ -24,11 +24,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     <form method="post">
       <div class="my-3">
         <label for="cipher" class="form-label"><strong>Cipher text:</strong></label>
-        <textarea id="cipher" name="cipher" class="form-control"><?= htmlspecialchars($_POST['cipher'] ?? '') ?></textarea>
+        <textarea id="cipher" name="cipher" class="form-control" required><?= htmlspecialchars($_POST['cipher'] ?? '') ?></textarea>
       </div>
       <div class="my-3">
         <label for="slope" class="form-label"><strong>Slope:</strong></label>
-        <select name="slope" id="slope" class="form-select">
+        <select name="slope" id="slope" class="form-select" required>
           <?php foreach (Affine::$slopeOption as $slope) : ?>
             <option value="<?= $slope ?>" <?= isset($_POST['slope']) && $slope == $_POST['slope'] ? 'selected' : '' ?>><?= $slope ?></option>
           <?php endforeach; ?>
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
       </div>
       <div class="my-3">
         <label for="intercept" class="form-label"><strong>Intercept (pergeseran):</strong></label>
-        <input type="text" id="intercept" name="intercept" value="<?= htmlspecialchars($_POST['intercept'] ?? '') ?>" class="form-control">
+        <input type="text" id="intercept" name="intercept" value="<?= htmlspecialchars($_POST['intercept'] ?? '') ?>" class="form-control" required>
       </div>
       <button type="submit" name="submit" class="btn btn-primary">Decrypt</button>
     </form>
@@ -57,46 +57,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 </div>
 
 <?php include __DIR__ . '/../components/_footer.php'; ?>
-
-<div>
-  <a href="/index.php">Back to home</a>
-</div>
-<h1>Decrypt Affine Cipher</h1>
-<form method="post">
-  <div>
-    <label for="cipher">Cipher text:</label>
-    <input type="text" id="cipher" name="cipher">
-  </div>
-  <div>
-    <label for="slope">Slope: </label>
-    <select name="slope" id="slope">
-      <option value="1">1</option>
-      <option value="3">3</option>
-      <option value="5">5</option>
-      <option value="7">7</option>
-      <option value="9">9</option>
-      <option value="11">11</option>
-      <option value="15">15</option>
-      <option value="17">17</option>
-      <option value="19">19</option>
-      <option value="21">21</option>
-    </select>
-  </div>
-  <div>
-    <label for="intercept">Intercept (pergeseran):</label>
-    <input type="number" id="intercept" name="intercept">
-  </div>
-  <button type="submit" name="submit">Decrypt</button>
-</form>
-<?php if (isset($plainText)) : ?>
-  <p>
-    <strong><?= $plainText ?></strong>
-  </p>
-<?php else : ?>
-  <p>
-    <strong>Please input some text</strong>
-  </p>
-<?php endif ?>
-</body>
-
-</html>
