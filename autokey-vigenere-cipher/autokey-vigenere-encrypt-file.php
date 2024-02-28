@@ -37,10 +37,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     <hr>
     <?php if (isset($cipherText)) : ?>
       <p>
-        <strong><?= $cipherText ?></strong>
+        <strong>Output:</strong> <?= $cipherText ?>
       </p>
       <p>
         <a href="/uploads/<?= $filename ?>" download>Download encrypted text file</a>
+      </p>
+      <p>
+        <strong>Output (base64):</strong> <?= base64_encode($cipherText) ?>
       </p>
     <?php else : ?>
       <p>

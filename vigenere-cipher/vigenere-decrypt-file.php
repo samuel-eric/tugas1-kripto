@@ -1,13 +1,13 @@
 <?php
 
-require './playfair-cipher.php';
+require './vigenere-cipher.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
   if ($_FILES['cipher']['error'] === UPLOAD_ERR_OK) {
     $fileLocation = $_FILES['cipher']['tmp_name'];
     $cipherText = file_get_contents($fileLocation);
     $key = $_POST['key'] ?? '';
-    $plainText = PlayfairCipher::decrypt($cipherText, $key);
+    $plainText = Vigenere::decrypt($cipherText, $key);
 
     $filename = 'decrypt-' . uniqid() . '.txt';
     file_put_contents(__DIR__ . '/../uploads/' . $filename, $plainText);
@@ -37,10 +37,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     <hr>
     <?php if (isset($plainText)) : ?>
       <p>
-        <strong><?= $plainText ?></strong>
+        <strong>Output:</strong> <?= $plainText ?>
       </p>
       <p>
         <a href="/uploads/<?= $filename ?>" download>Download decrypted text file</a>
+      </p>
+      <p>
+        <strong>Output (base64):</strong> <?= base64_encode($plainText) ?>
       </p>
     <?php else : ?>
       <p>

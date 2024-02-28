@@ -34,10 +34,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     <hr>
     <?php if (isset($plainText)) : ?>
       <p>
-        <strong><?= $plainText ?></strong>
+        <strong>Output:</strong> <?= $plainText ?>
       </p>
       <p>
         <a href="/uploads/<?= $filename ?>" download>Download decrypted text file</a>
+      </p>
+      <p>
+        <strong>Output (base64):</strong> <?= base64_encode($plainText) ?>
       </p>
     <?php else : ?>
       <p>

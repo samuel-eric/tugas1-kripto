@@ -55,7 +55,7 @@ class Vigenere
       }
     }
 
-    return $cipherText;
+    return strtoupper($cipherText);
   }
 
   public static function decrypt($cipherText, $key)
@@ -112,6 +112,6 @@ class Vigenere
       }
     }
 
-    return $plainText;
+    return strtoupper($plainText);
   }
 }
