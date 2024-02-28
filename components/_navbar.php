@@ -76,6 +76,20 @@
             <li><a class="dropdown-item" href="./../playfair-cipher/playfair-decrypt-file.php">Decrypt Text File</a></li>
           </ul>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Product
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="./../product-cipher/product-encrypt-text.php">Encrypt Text</a></li>
+            <li><a class="dropdown-item" href="./../product-cipher/product-decrypt-text.php">Decrypt Text</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="./../product-cipher/product-encrypt-file.php">Encrypt Text File</a></li>
+            <li><a class="dropdown-item" href="./../product-cipher/product-decrypt-file.php">Decrypt Text File</a></li>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>
