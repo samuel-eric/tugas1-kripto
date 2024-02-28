@@ -29,8 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
         <input type="file" name="cipher" id="cipher" accept=".txt" class="form-control" required>
       </div>
       <div class="my-3">
-        <label for="key" class="form-label"><strong>Key:</strong></label>
-        <input type="text" id="key" name="key" class="form-control" required>
+        <label for="key" class="form-label"><strong>Key (a-z):</strong></label>
+        <input type="text" id="key" name="key" class="form-control" required pattern="[a-zA-Z]*">
       </div>
       <button type="submit" name="submit" class="btn btn-primary">Decrypt</button>
     </form>

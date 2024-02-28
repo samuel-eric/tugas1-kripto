@@ -26,8 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
         <textarea id="plain" name="plain" class="form-control" required><?= htmlspecialchars($_POST['plain'] ?? '') ?></textarea>
       </div>
       <div class="my-3">
-        <label for="key" class="form-label"><strong>Key:</strong></label>
-        <input type="text" id="key" name="key" value="<?= htmlspecialchars($_POST['key'] ?? '') ?>" class="form-control" required>
+        <label for="key" class="form-label"><strong>Key (a-z):</strong></label>
+        <input type="text" id="key" name="key" value="<?= htmlspecialchars($_POST['key'] ?? '') ?>" class="form-control" required pattern="[a-zA-Z]*">
       </div>
       <button type="submit" name="submit" class="btn btn-primary">Encrypt</button>
     </form>
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
       </p>
     <?php else : ?>
       <p>
-        <strong>Please input some text</strong>
+        <strong>Please input plain text and key</strong>
       </p>
     <?php endif ?>
   </div>
