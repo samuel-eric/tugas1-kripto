@@ -3,14 +3,14 @@
 require './playfair-cipher.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
-  if ($_FILES['cipher']['error'] === UPLOAD_ERR_OK) {
-    $fileLocation = $_FILES['cipher']['tmp_name'];
-    $cipherText = file_get_contents($fileLocation);
+  if ($_FILES['plain']['error'] === UPLOAD_ERR_OK) {
+    $fileLocation = $_FILES['plain']['tmp_name'];
+    $plainText = file_get_contents($fileLocation);
     $key = $_POST['key'] ?? '';
-    $plainText = PlayfairCipher::decrypt($cipherText, $key);
+    $cipherText = PlayfairCipher::encrypt($plainText, $key);
 
-    $filename = 'decrypt-' . uniqid() . '.txt';
-    file_put_contents(__DIR__ . '/../uploads/' . $filename, $plainText);
+    $filename = 'encrypt-' . uniqid() . '.txt';
+    file_put_contents(__DIR__ . '/../uploads/' . $filename, $cipherText);
   }
 }
 
@@ -21,30 +21,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 <div class="card position-absolute top-50 start-50 translate-middle">
   <div class="card-body">
     <a href="/index.php" class="btn btn-secondary mb-3">Back to home</a>
-    <h5 class="card-title fs-3">Decrypt Playfair Cipher with Text File</h5>
+    <h5 class="card-title fs-3">Encrypt Playfair Cipher with Text File</h5>
     <hr>
     <form method="post" enctype="multipart/form-data">
       <div class="my-3">
-        <label for="cipher" class="form-label"><strong>Cipher text file:</strong></label>
-        <input type="file" name="cipher" id="cipher" accept=".txt" class="form-control" required>
+        <label for="plain" class="form-label"><strong>Plain text file:</strong></label>
+        <input type="file" name="plain" id="plain" accept=".txt" class="form-control" required>
       </div>
       <div class="my-3">
         <label for="key" class="form-label"><strong>Key (a-z):</strong></label>
         <input type="text" id="key" name="key" class="form-control" required pattern="[a-zA-Z]*">
       </div>
-      <button type="submit" name="submit" class="btn btn-primary">Decrypt</button>
+      <button type="submit" name="submit" class="btn btn-primary">Encrypt</button>
     </form>
     <hr>
-    <?php if (isset($plainText)) : ?>
+    <?php if (isset($cipherText)) : ?>
       <p>
-        <strong><?= $plainText ?></strong>
+        <strong><?= $cipherText ?></strong>
       </p>
       <p>
         <a href="/uploads/<?= $filename ?>" download>Download decrypted text file</a>
       </p>
     <?php else : ?>
       <p>
-        <strong>Please input cipher text file and key</strong>
+        <strong>Please input plain text file and key</strong>
       </p>
     <?php endif ?>
   </div>
